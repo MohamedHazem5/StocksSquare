@@ -100,13 +100,34 @@ Deploy to Netlify (`https://stocksquares.netlify.app`). Publish the API to Somee
 
 ### Cloudflare Pages / Workers deploy
 
-Do **not** upload the `Frontend` source folder. Upload the **built** output:
+Your live site is still serving **source** HTML (`/src/main.tsx`). That always gives a white screen. Cloudflare must get the **`dist`** build.
 
+**Check after deploy:** open the site → View Page Source. You must see:
+```html
+<script type="module" crossorigin src="/assets/index-….js"></script>
+```
+If you still see `/src/main.tsx`, you uploaded the wrong folder.
+
+**Option A — upload manually**
 1. `cd Frontend && npm run build`
-2. Deploy the **`dist`** folder (or set Pages: build `npm run build`, output `dist`, root `Frontend`)
-3. Confirm live `index.html` references `/assets/index-….js` — **not** `/src/main.tsx`
+2. Upload **only** `Frontend/dist` (must contain `index.html` + `assets/` with `Gold.png` and `index-….js`)
+3. Do **not** upload `Frontend`, `src`, or the repo root
 
-Production API URL is set in `.env.production` to `https://www.StockSquares.somee.com`. Republish the backend so CORS allows your Cloudflare origin (e.g. `https://stockssquare.mh600766.workers.dev`).
+**Option B — Wrangler (recommended)**
+```bash
+cd Frontend
+npm install -D wrangler
+npx wrangler login
+npm run deploy:cf
+```
+`wrangler.toml` points assets at `./dist`.
+
+**Option C — Cloudflare Pages (Git)**
+- Root directory: `Frontend`
+- Build command: `npm run build`
+- Build output directory: `dist`
+
+Production API URL is in `.env.production` → `https://www.StockSquares.somee.com`. Republish the backend so CORS allows your Cloudflare origin (e.g. `https://stockssquare.mh600766.workers.dev`).
 
 
 ---
