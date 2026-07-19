@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+Frontend/node_modules/
+**/bin/
+**/obj/
+**/.vs/
+*.user
+*.suo
+
+# Build
+Frontend/dist/
+*.log
+
+# Env
+.env
+.env.local
+*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json

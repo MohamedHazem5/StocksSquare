@@ -1,0 +1,24 @@
+@StockSquare_HttpHostAddress = http://localhost:5032
+
+GET {{StockSquare_HttpHostAddress}}/api/market
+Accept: application/json
+
+###
+
+GET {{StockSquare_HttpHostAddress}}/api/products
+Accept: application/json
+
+###
+
+GET {{StockSquare_HttpHostAddress}}/api/products?category=gold
+Accept: application/json
+
+###
+
+GET {{StockSquare_HttpHostAddress}}/api/categories
+Accept: application/json
+
+###
+
+GET {{StockSquare_HttpHostAddress}}/api/gold-prices
+Accept: application/json
