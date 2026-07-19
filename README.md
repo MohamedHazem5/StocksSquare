@@ -9,6 +9,7 @@ Precious metals storefront — React frontend + ASP.NET Core API.
 | Layout | RTL Arabic UI |
 
 ---
+<img width="1913" height="942" alt="image" src="https://github.com/user-attachments/assets/62ec7a98-a36f-41a0-8429-cab4ece80ce7" />
 
 ## Project structure
 
