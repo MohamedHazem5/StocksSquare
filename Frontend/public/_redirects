@@ -1,2 +1,2 @@
-/api/*  https://www.StockSquares.somee.com/api/:splat  200
-/*      /index.html   200
+# SPA fallback (Cloudflare Pages + Netlify)
+/*    /index.html   200

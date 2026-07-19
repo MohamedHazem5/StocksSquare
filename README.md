@@ -98,11 +98,16 @@ npm run preview
 
 Deploy to Netlify (`https://stocksquares.netlify.app`). Publish the API to Somee (`www.StockSquares.somee.com`).
 
-### Netlify Drop deploy
+### Cloudflare Pages / Workers deploy
+
+Do **not** upload the `Frontend` source folder. Upload the **built** output:
 
 1. `cd Frontend && npm run build`
-2. Drag the whole **`dist`** folder onto Netlify Drop — site root must contain `index.html` and `_redirects`.
-3. Confirm `_redirects` includes the `/api/*` proxy line before the SPA fallback.
+2. Deploy the **`dist`** folder (or set Pages: build `npm run build`, output `dist`, root `Frontend`)
+3. Confirm live `index.html` references `/assets/index-….js` — **not** `/src/main.tsx`
+
+Production API URL is set in `.env.production` to `https://www.StockSquares.somee.com`. Republish the backend so CORS allows your Cloudflare origin (e.g. `https://stockssquare.mh600766.workers.dev`).
+
 
 ---
 
